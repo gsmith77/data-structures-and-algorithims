@@ -20,18 +20,56 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# Data Structures:
 
-To learn more about Next.js, take a look at the following resources:
+## Two Pointers:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    1. Given a sorted array of integers and a target value, determine if there exists two integers in the array that sum up to the target value. -> https://chat.openai.com/share/fe8099cb-af05-4c8a-8315-9b5d7be8e93e or https://outco.teachable.com/courses/438359/lectures/6721929
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    2. Sort Bit Array [0, 1, 1, 0] => [0, 0, 1, 1]
+        ```const sortBitArray = (arr) => {
+            let left = 0;
+            let right = arr.length - 1;
 
-## Deploy on Vercel
+            // manipulate the array
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+            while (left < right) {
+                // if left == 1 && right == 0 swap arr[left] and arr[right]
+                // OR if right == 0 && left == 1 swap arr[left] and arr[right]
+                if (
+                (arr[left] == 1 && arr[right] == 0) ||
+                (arr[right] == 0 && arr[left] == 1)
+                ) {
+                console.log("arr before", arr);
+                [arr[left], arr[right]] = [arr[right], arr[left]];
+                console.log("arr after", arr);
+                }
+                //  if left == 0 left++;
+                // else if right == 1 right--;
+                if (arr[left] == 0) {
+                console.log("left", left);
+                left++;
+                }
+                if (arr[right] == 1) {
+                console.log("right", right);
+                right--;
+                }
+            }
+            return arr;
+            };
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# data-structures-and-algorithims
+            console.log(
+            "sortBitArray",
+            sortBitArray([
+                1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+            ])
+            );
+
+            // [0, 1, 1, 0, 1, 1, 1, 0]
+            // if left == 1 move up to a 1
+            // if right == 0
+            // [0, 1, 0, 1, 0]
+            //  l           r
+            //     l        r
+            ```
