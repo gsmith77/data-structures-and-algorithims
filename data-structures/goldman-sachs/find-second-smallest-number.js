@@ -73,7 +73,7 @@ console.log(
 // [-100, 100, 0, -200]
 //   l              r
 
-const secondSmallesta = (arr) => {
+const secondSmallest2 = (arr) => {
   let firstSmallest = Infinity;
   let secondSmallest = Infinity;
   for (let i = 0; i < arr.length; i++) {
@@ -88,6 +88,6 @@ const secondSmallesta = (arr) => {
 };
 
 console.log(
-  "secondSmallesta",
+  "secondSmallest",
   secondSmallesta([-1000, 100, 0, -2000, -30000, -85, 5, 233, 35])
 );
