@@ -1,3 +1,5 @@
+// Big (O) Notation
+// Time: O(n)
 const maxFrequencyOfCharacter = (str, characterAmount = 1) => {
   if (!str || typeof str !== "string") {
     return "";
