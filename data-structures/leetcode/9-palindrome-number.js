@@ -3,21 +3,26 @@
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-  if (x < 0 || (typeof x === "string" && !x.length)) {
+  if (
+    (typeof x === "number" && x == undefined) ||
+    (typeof x === "string" && !x)
+  ) {
     return false;
   }
 
   const xAsStr = `${x}`;
-  const splitX = [...xAsStr];
-  let left = 0;
-  let right = splitX.length - 1;
 
-  while (left < right) {
-    if (splitX[left] != splitX[right]) {
+  let l = 0;
+  let r = xAsStr.length - 1;
+
+  while (l < r) {
+    const left = xAsStr[l];
+    const right = xAsStr[r];
+    if (left !== right) {
       return false;
     }
-    left++;
-    right--;
+    l++;
+    r--;
   }
   return true;
 };
