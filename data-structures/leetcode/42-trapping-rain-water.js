@@ -50,6 +50,7 @@
 // 2) Two Pointers
 function trapRainWater(arr) {
   if (arr == null || arr.length === 0) return 0;
+
   let l = 0;
   let leftMax = arr[l];
   let r = arr.length - 1;
